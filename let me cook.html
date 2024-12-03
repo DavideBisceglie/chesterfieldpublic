@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carriera Chesterfield FC</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #00438d; /* Colore blu della divisa del Chesterfield */
+            color: #fff; /* Testo bianco per un buon contrasto */
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            background-color: #00438d; /* Sfondo blu uniforme */
+            padding: 20px;
+            border-radius: 10px; /* Smussare gli angoli */
+        }
+        header, footer {
+            background: #fff;
+            color: #00438d;
+            padding: 10px 0;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #00438d;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .main-section {
+            margin: 20px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .logo {
+            display: block;
+            margin: 20px auto;
+            max-width: 100px;
+        }
+        .season {
+            margin-bottom: 40px;
+            background-color: #606060; /* Sfondo bianco per la sezione di ogni stagione */
+            color: #fff; /* Testo nero per la sezione di ogni stagione */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .home-content {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 200px;
+            height: 300px;
+            perspective: 1000px;
+            margin: 10px auto;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+        .flip-card-back {
+            background-color: #00438d;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .player-photo {
+            width: 100%;
+            height: 80%;
+            object-fit: cover; /* Mantiene le proporzioni corrette */
+            border-radius: 10px 10px 0 0;
+        }
+        .kit-photo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px;
+        }
+        .player-name, .player-stats {
+            margin: 5px;
+        }
+        .tabellino {
+            display: none;
+        }
+        .btn-section {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #00438d;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-section:hover {
+            background-color: #003366;
+        }
+        .section-content {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleSection(sectionId) {
+            var sections = document.querySelectorAll('.section-content');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            var section = document.getElementById(sectionId);
+            section.style.display = 'block';
+        }
+
+        function toggleTabellino(tabellinoId) {
+            var tabellino = document.getElementById(tabellinoId);
+            if (tabellino.style.display === 'none' || tabellino.style.display === '') {
+                tabellino.style.display = 'block';
+            } else {
+                tabellino.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <img src="chesterfield_logo.png" alt="Chesterfield FC Logo" class="logo">
+        <h1>Carriera Chesterfield FC</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tifosi">Tifosi</a></li>
+             
+
+
+
+               
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container" id="tifosi">
+        <h2 class="section-title">Stadio e inno</h2>
+        <div class="home-content">
+            <h3>Descrizione dello Stadio</h3>
+            <p>Il nostro stadio, situato a Chesterfield, è un simbolo di orgoglio per tutti i tifosi...</p>
+        </div>
+        <div class="home-content">
+            <h3>Foto dello Stadio</h3>
+            <img src="stadium1.jpg" alt="Foto dello Stadio 1" class="stadium-photo">
+            <img src="stadium2.jpg" alt="Foto dello Stadio 2" class="stadium-photo">
+            <img src="stadium3.jpg" alt="Foto dello Stadio 2" class="stadium-photo">
+
+            <h2 class="section-title">Inno</h2>
+            <div class="home-content">
+                <h3>Il Nostro Inno</h3>
+                <p>L'inno del Chesterfield FC è un simbolo di orgoglio e passione...</p>
+                <a href="https://www.youtube.com/watch?v=f84YjfctReE">Ascolta l'inno qui</a>
+        </div>
+        
+        </div>
+        
+
+        <head>
+            <!-- Altri meta tag e link qui -->
+            <style>
+                /* Altri stili qui */
+        
+                /* Aggiungi questo codice CSS per le foto delle maglie */
+                .stadium-photo {
+                    width: 600px; /* Aumenta la larghezza */
+                    height: 600px; /* Aumenta l'altezza */
+                    object-fit: cover; /* Mantiene le proporzioni corrette */
+                    margin: 10px;
+                }
+        
+                /* Altri stili qui */
+            </style>
+            <!-- Altri script qui -->
+        </head>
+
+        <head>
+            <!-- Altri meta tag e link qui -->
+            <style>
+                /* Altri stili qui */
+        
+                /* Aggiungi questo codice CSS per le foto delle maglie */
+                .kit-photo {
+                    width: 300px; /* Aumenta la larghezza */
+                    height: 300px; /* Aumenta l'altezza */
+                    object-fit: cover; /* Mantiene le proporzioni corrette */
+                    margin: 10px;
+                }
+        
+                /* Altri stili qui */
+            </style>
+            <!-- Altri script qui -->
+        </head>
+        
+    </div>
+    <script>
+        function showSection(sectionId) {
+    var sections = document.querySelectorAll('.container');
+    sections.forEach(function(section) {
+        section.style.display = 'none';
+    });
+    var section = document.getElementById(sectionId);
+    if (section) {
+        section.style.display = 'block';
+    }
+}
+
+// Aggiungi eventi click per i link del menu
+document.querySelector('nav ul li a[href="#home"]').onclick = function() { showSection('home'); };
+document.querySelector('nav ul li a[href="#tifosi"]').onclick = function() { showSection('tifosi'); };
+
+
+// Mostra la home di default
+showSection('home');
+
+    </script>
+    
+
+    <div class="container" id="home">
+        <div class="home-content">
+            <h2>Benvenuto nel sito della carriera del Chesterfield FC!</h2>
+            <p>Qui puoi trovare tutte le informazioni sulla nostra carriera nel gioco FC25, inclusi dettagli delle partite, statistiche dei giocatori e movimenti di mercato. Seleziona una stagione dal menu per iniziare.</p>
+        </div>
+        <div class="home-content">
+            <h3>Storia del Club</h3>
+            <p>Il Chesterfield FC è stato fondato nel 1866...</p>
+        </div>
+        <div class="home-content">
+            <h3>Divise</h3>
+            <img src="home_kit.jpg" alt="Divisa Casa" class="kit-photo">
+            <img src="away_kit.jpeg" alt="Divisa Trasferta" class="kit-photo">
+        </div>
+    </div>
+
+    <div class="container season" id="stagione-2024-2025">
+        <h2 class="section-title">Stagione 2024-2025</h2>
+        <button class="btn-section" onclick="toggleSection('rosa-2024-2025')">Rosa e statistiche</button>
+        <button class="btn-section" onclick="toggleSection('campionato-2024-2025')">Campionato</button>
+        <button class="btn-section" onclick="toggleSection('coppa-2024-2025')">Coppa</button>
+        <button class="btn-section" onclick="toggleSection('champions-2024-2025')">Champions League</button>
+        <button class="btn-section" onclick="toggleSection('classifica-2024-2025')">Classifica</button>
+        <button class="btn-section" onclick="toggleSection('mercato-2024-2025')">Movimenti di Mercato</button>
+        
+        <div id="rosa-2024-2025" class="section-content">
+            <h3>Rosa Giocatori</h3>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="player1.jpg" alt="Giocatore 1" class="player-photo">
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="player-name">Giocatore 1</div>
+                        <div class="player-stats">Posizione: Attaccante<br>Gol: 15<br>Assisti: 5</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Aggiungi altre flip card per i giocatori -->
+        </div>
+        
+        <div id="campionato-2024-2025" class="section-content header">
+            <h3>Campionato</h3>
+            <p>Chesterfield FC 1-0 Juventus <a href="#" onclick="toggleTabellino('tabellino1')">vedi tabellino</a></p>
+            <div id="tabellino1" class="tabellino">
+                <h4>Tabellino</h4>
+                <p><strong>Data, ora e stadio:</strong> Sabato 17/08/2024, SMH Group Stadium</p>
+                <p><strong>Marcatori:</strong> Giocatore 1 (Chesterfield FC)</p>
+                <p><strong>Formazioni:</strong></p>
+                <p><strong>Chesterfield FC:</strong> Giocatore 1, Giocatore 2, Giocatore 3, ...</p>
+                <p><strong>Juventus:</strong> Giocatore A, Giocatore B, Giocatore C, ...</p>
+            </div>
+        </div>
+<style>
+    .header {
+    background-image: url('sfondo.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+}
+
+</style>        
+            </div>
+        </div>
+        
+        <div id="coppa-2024-2025" class="section-content">
+            <h3>Coppa</h3>
+            <!-- Lista partite della coppa -->
+        </div>
+        
+        <div id="champions-2024-2025" class="section-content">
+            <h3>Champions League</h3>
+            <!-- Lista partite della Champions League -->
+        </div>
+        
+        <div id="classifica-2024-2025" class="section-content">
+            <h3>Classifica</h3>
+            <!-- Classifica di fine stagione -->
+        </div>
+        
+        <div id="mercato-2024-2025" class="section-content"></div>
+        
+
+        
